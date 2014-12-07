@@ -11,7 +11,7 @@ public class ObservableBoardHolder extends Observable {
 
 
  public void addObject(ObjectUpdate input){
-     myBoard.addObject(input); 
+     myBoard.setGameObject(input.getGameObject(),input.getCoordinates()); 
      setChangedAndNotify();
 	}	
 
@@ -50,7 +50,7 @@ public class ObservableBoardHolder extends Observable {
 		notifyObservers();
 	}
 	public void removeObject(RemoveUpdate in){
-	    myBoard.deleteGameObjectAtPatch(in.getCoordinates());
+	    myBoard.deleteGameObjectAt(in.getCoordinates());
 	    setChangedAndNotify();
 	}
 }
