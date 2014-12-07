@@ -18,17 +18,4 @@ public class FolderList {
 		}
 		return temp; 
 	}
-	
-	
-	
-//	public static void main(  String[] args){
-//		
-//		FolderList test = new FolderList(); 
-//		
-//		List<String> temp =  test.getContents("src//images"); 
-//		
-//		for( String s : temp ) System.out.println(s); 
-//		
-//		
-//	}
 }

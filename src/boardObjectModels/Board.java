@@ -6,19 +6,20 @@ import inputs.InputObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AbstractBoard{
+public class Board{
 	
 	protected List<GameObject> gameObjectList; 
 	protected PatchHolder patchList; 
 	
 
-	public AbstractBoard( List<Integer> Dimensions){
+	public Board( List<Integer> Dimensions){
 		gameObjectList = new ArrayList<GameObject>(); 
+		patchList = new PatchHolder(Dimensions); 
 		
 	}
 	
 	
-	private AbstractBoard(List<GameObject> g, PatchHolder t){
+	private Board(List<GameObject> g, PatchHolder t){
 		gameObjectList = g; 
 		patchList = t; 
 		
@@ -77,8 +78,8 @@ public class AbstractBoard{
     }
 
     
-    public AbstractBoard addObject (InputObject input) {
-        AbstractBoard tempBoard = new AbstractBoard(gameObjectList, patchList);
+    public Board addObject (InputObject input) {
+        Board tempBoard = new Board(gameObjectList, patchList);
         
         //InputObject tempIn = new InputObject(tempBoard.getPatchGameObject(input.getCoordinates()),input.getCoordinates());
         

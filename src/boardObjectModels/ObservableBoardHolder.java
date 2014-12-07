@@ -7,7 +7,7 @@ import inputs.InputRemove;
 import java.util.Observable;
 
 public class ObservableBoardHolder extends Observable {
-	private AbstractBoard myBoard; 
+	private Board myBoard; 
 
 
  public void addObject(InputObject input){
@@ -32,16 +32,16 @@ public class ObservableBoardHolder extends Observable {
 		
 	}
  	
-	public void updateBoard(AbstractBoard board){
+	public void updateBoard(Board board){
 		myBoard = board;
 		setChangedAndNotify();
 	}
 	
-	public AbstractBoard getBoard(){
+	public Board getBoard(){
 		return myBoard;
 	}
 	
-	public void setBoard(AbstractBoard board){
+	public void setBoard(Board board){
 		myBoard = board;
 	}
 	
