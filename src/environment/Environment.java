@@ -1,7 +1,8 @@
 package environment;
 
-import layouts.AuthoringLayout;
-import layouts.PlayingLayout;
+import layouts.AbstractLayout;
+import layouts.LayoutFactory;
+
 import Data.DataHandler;
 import boardObjectModels.ObservableBoardHolder;
 
@@ -33,5 +34,6 @@ public class Environment {
 	public BorderPane getView(){
 		return myGameView.getPane();
 	}
+
 	
 }

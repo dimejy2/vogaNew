@@ -3,13 +3,13 @@ package inputs;
 import attributes.IAttribute;
 import boardObjectModels.Patch;
 
-public class InputInteract extends AbstractInput{
+public class InteractUpdate extends AbstractInput{
         
         private Patch myActor; 
         private Patch myReceiver;
         private IAttribute myAttribute;
         
-        public InputInteract(Patch actor, IAttribute attribute, Patch receiver){
+        public InteractUpdate(Patch actor, IAttribute attribute, Patch receiver){
             myActor = actor;
             myReceiver = receiver;
             myAttribute = attribute;
