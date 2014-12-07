@@ -3,10 +3,9 @@ package dataHandler;
 
 import gameObjectModel.GameObject;
 import inputs.AbstractInput;
-import inputs.InputInteract;
-import inputs.InputSaveLoad;
-import inputs.InputUndoRedo;
-import interfaces.IDataHandler;
+import inputs.InteractUpdate;
+import inputs.SaveLoadUpdate;
+import inputs.UndoRedoUpdate;
 
 import java.beans.Introspector;
 import java.nio.file.Path;
@@ -15,7 +14,7 @@ import java.util.Observer;
 
 import util.Reflection;
 import attributes.Attack;
-import boardObjectModels.AbstractBoard;
+import boardObjectModels.Board;
 import boardObjectModels.ObservableBoardHolder;
 
 
@@ -38,18 +37,17 @@ public class DataHandler implements Observer, boardUpdate{
 
 	}
 
-	private void writeData(AbstractBoard board, Path p) {
+	private void writeData(Board board, Path p) {
 	    
 		mySerialiser.serialise(board, p);
 
 	}
 	private void readData(Path p) {
-	    AbstractBoard b = myDeSerialiser.deserialise(p);
+	    Board b = myDeSerialiser.deserialise(p);
 	    myBoardHolder.updateBoard(b);
 	}
 
 
-	@Override
 	public void undo() {
 		AbstractInput input = myStates.undo();
 		try{
@@ -57,7 +55,6 @@ public class DataHandler implements Observer, boardUpdate{
 		}
 		catch( NullPointerException e){}
 	}
-	@Override
 	public void redo() {
 		AbstractInput input = myStates.redo();
 		try{
@@ -90,7 +87,7 @@ public class DataHandler implements Observer, boardUpdate{
 	
 	
 	protected void interactUpdate(Object arg){
-       InputInteract input = (InputInteract) arg;
+       InteractUpdate input = (InteractUpdate) arg;
        GameObject receiver = input.getActor().getGameObject();
        Attack attr = (Attack)input.getAttribute();
        attr.action(receiver);
@@ -113,7 +110,7 @@ public class DataHandler implements Observer, boardUpdate{
 
 	public void undoRedoUpdate(Object arg){
 	    
-		InputUndoRedo input = (InputUndoRedo) arg;
+		UndoRedoUpdate input = (UndoRedoUpdate) arg;
 		Boolean undo = input.isUndo();
 
 		if(undo){
@@ -127,7 +124,7 @@ public class DataHandler implements Observer, boardUpdate{
 	
 	protected void saveloadUpdate(Object arg){
         
-        InputSaveLoad input = (InputSaveLoad) arg;
+        SaveLoadUpdate input = (SaveLoadUpdate) arg;
         Boolean save = input.getIsSave();
 
         if(save){
@@ -138,12 +135,11 @@ public class DataHandler implements Observer, boardUpdate{
         }
     }
 	
-	@Override
 	public void addState(AbstractInput input) {
 		myStates.add(input);
 		
 	}
-	@Override
+
 	public AbstractInput returnCurrentState() {
 		return myStates.getCurrInput();
 	}
