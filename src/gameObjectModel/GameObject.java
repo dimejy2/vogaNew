@@ -8,16 +8,18 @@ import attributes.AbstractAttribute;
 public class GameObject {
 
 	private List<AbstractAttribute> myAttributeList; 
-	private Motion myMotion; 
+	private AbstractRange myMotionRange; 
+	private AbstractRange myInteractRange;
 
 	
 	/**
 	 * constructor for the GameObject class
 	 * @param myAttributes
 	 */
-	public GameObject( List<AbstractAttribute> myAttributes, Motion mover){
+	public GameObject( List<AbstractAttribute> myAttributes, AbstractRange motionRange, AbstractRange interactRange){
 		myAttributeList = myAttributes;
-		myMotion = mover; 
+		myMotionRange = motionRange;
+		myInteractRange = interactRange;
 	}
 	
 	/**
@@ -29,9 +31,13 @@ public class GameObject {
 		attr.action(that);	
 	}
 	
-	public Motion getMyMotion(){
-		return myMotion; 
+	public AbstractRange getMotionRange(){
+		return myMotionRange; 
 	}
+	
+	public AbstractRange getAttackRange(){
+        return myInteractRange; 
+    }
 	
 	public List<AbstractAttribute> getAttributes(){
 	    return myAttributeList; 
