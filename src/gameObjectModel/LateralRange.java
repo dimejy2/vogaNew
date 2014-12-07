@@ -12,8 +12,8 @@ public class LateralRange extends AbstractRange{
         super(name, jump);
         myDirections = directions;
     }
-    
-    public List<List<Integer>> getDeltas(){
+    @Override
+    public List<List<Integer>> getDeltas(List<Integer> position){
         List<List<Integer>> deltas = new ArrayList<List<Integer>>();
         int horiz = myDirections.get("horizontal");
         int vert =  myDirections.get("vertical");
@@ -28,18 +28,21 @@ public class LateralRange extends AbstractRange{
             }
             if( !(i<=horiz) && !(j<=vert) && !(k <= diag))  break; 
         } 
-  */              
-        for(int i = -horiz; i<=horiz; i++) deltas.add(Arrays.asList(i, 0));
-        for(int i = -vert; i<=vert; i++) deltas.add(Arrays.asList(0,i));
+  */        
+        for(int i = -horiz; i<=horiz; i++){ 
+            if(i!=0) deltas.add(Arrays.asList(i, 0));
+            }
+        for(int i = -vert; i<=vert; i++){
+            if(i!=0) deltas.add(Arrays.asList(0,i));
+        }
         for(int i = -diag; i<=diag; i++){
+            if(i!=0){
             deltas.add(Arrays.asList(i,i));
             deltas.add(Arrays.asList(i,-i));
+            }
         }        
         return deltas;        
     }
+    
 
-    @Override
-    public List<List<Integer>> getDeltas (List<Integer> position) {        
-        return null;
-    }
 }
