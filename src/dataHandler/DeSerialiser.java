@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.nio.file.Path;
 
-import attributes.IAttribute;
+import attributes.AbstractAttribute;
 import boardObjectModels.Board;
 import boardObjectModels.Patch;
 
@@ -33,7 +33,7 @@ public class DeSerialiser
 		//Gson gson = new Gson();
 		
 		GsonBuilder gsonBuilder = new GsonBuilder();
-		gsonBuilder.registerTypeHierarchyAdapter(IAttribute.class, new CustomSerialisation<IAttribute>()).registerTypeHierarchyAdapter(IAttribute.class, new CustomSerialisation<IAttribute>());
+		gsonBuilder.registerTypeHierarchyAdapter(AbstractAttribute.class, new CustomSerialisation<AbstractAttribute>()).registerTypeHierarchyAdapter(AbstractAttribute.class, new CustomSerialisation<AbstractAttribute>());
 		//gsonBuilder.registerTypeHierarchyAdapter(IBoard.class, new CustomSerialisation<IBoard>()).registerTypeHierarchyAdapter(IBoard.class, new CustomSerialisation<IBoard>());
 		//gsonBuilder.registerTypeHierarchyAdapter(IPatch.class, new CustomSerialisation<IPatch>()).registerTypeHierarchyAdapter(IPatch.class, new CustomSerialisation<IPatch>());
 

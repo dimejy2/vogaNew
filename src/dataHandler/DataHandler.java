@@ -13,7 +13,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import util.Reflection;
-import attributes.Attack;
+import attributes.AbstractAttribute;
 import boardObjectModels.Board;
 import boardObjectModels.ObservableBoardHolder;
 
@@ -89,7 +89,7 @@ public class DataHandler implements Observer, boardUpdate{
 	protected void interactUpdate(Object arg){
        InteractUpdate input = (InteractUpdate) arg;
        GameObject receiver = input.getActor().getGameObject();
-       Attack attr = (Attack)input.getAttribute();
+       AbstractAttribute attr = input.getAttribute();
        attr.action(receiver);
        myBoardHolder.updateBoard(myBoardHolder.getBoard());
        

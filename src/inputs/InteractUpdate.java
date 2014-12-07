@@ -1,15 +1,15 @@
 package inputs;
 
-import attributes.IAttribute;
+import attributes.AbstractAttribute;
 import boardObjectModels.Patch;
 
 public class InteractUpdate extends AbstractInput{
         
         private Patch myActor; 
         private Patch myReceiver;
-        private IAttribute myAttribute;
+        private AbstractAttribute myAttribute;
         
-        public InteractUpdate(Patch actor, IAttribute attribute, Patch receiver){
+        public InteractUpdate(Patch actor, AbstractAttribute attribute, Patch receiver){
             myActor = actor;
             myReceiver = receiver;
             myAttribute = attribute;
@@ -21,7 +21,7 @@ public class InteractUpdate extends AbstractInput{
         public Patch getReceiver(){
             return myReceiver;
         }
-        public IAttribute getAttribute(){
+        public AbstractAttribute getAttribute(){
             return myAttribute;
         }
 

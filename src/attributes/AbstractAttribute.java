@@ -4,9 +4,11 @@ import gameObjectModel.GameObject;
 
 public abstract class AbstractAttribute {
 
-	protected Object myValue; 
+	protected Double myValue; 
+	private String myName;
 	
-	public AbstractAttribute( Object attributeValue){
+	public AbstractAttribute(String name, Double attributeValue){
+	    myName = name;    
 		myValue = attributeValue; 
 		
 	}
@@ -14,22 +16,17 @@ public abstract class AbstractAttribute {
 	public abstract void action(GameObject obj); 
 
 	
-	protected void subtractAttribute(GameObject obj, String attribute){
-		
-		for(IAttribute attr : obj.getAttributes() ){
-            if(attr.toString().equals(attribute) && attr.getValue() instanceof Double ) 
-            	 attr.setValue( (Double) attr.getValue() - (Double)this.getValue() ) ; 
-		}
-	}
-	
-	
-	public Object getValue(){
+	public Double getValue(){
 		return myValue; 
 	} 
 	
 	public void setValue (double newValue){
 	    myValue = newValue;
 	}
+	
+	public String getName(){
+        return myName; 
+    }
 	
 	public String toString(){
 	    return this.getClass().getSimpleName(); 

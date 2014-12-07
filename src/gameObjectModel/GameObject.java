@@ -2,12 +2,12 @@ package gameObjectModel;
 
 import java.util.List;
 
-import attributes.IAttribute;
+import attributes.AbstractAttribute;
 
 
 public class GameObject {
 
-	private List< IAttribute> myAttributeList; 
+	private List< AbstractAttribute> myAttributeList; 
 	private Motion myMotion; 
 
 	
@@ -15,7 +15,7 @@ public class GameObject {
 	 * constructor for the GameObject class
 	 * @param myAttributes
 	 */
-	public GameObject( List<IAttribute> myAttributes, Motion mover){
+	public GameObject( List<AbstractAttribute> myAttributes, Motion mover){
 		myAttributeList = myAttributes;
 		myMotion = mover; 
 	}
@@ -29,7 +29,7 @@ public class GameObject {
 	 * @param attr
 	 * @param that
 	 */
-	public void executeAttribute( IAttribute attr, GameObject that ){
+	public void executeAttribute( AbstractAttribute attr, GameObject that ){
 		attr.action(that);	
 	}
 	
@@ -37,7 +37,7 @@ public class GameObject {
 		return myMotion; 
 	}
 	
-	public List<IAttribute> getAttributes(){
+	public List<AbstractAttribute> getAttributes(){
 	    return myAttributeList; 
 	}
 	

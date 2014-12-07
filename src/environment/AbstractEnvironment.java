@@ -1,6 +1,5 @@
 package environment;
 
-import inputs.KeyHandler;
 import layouts.AbstractLayout;
 import boardObjectModels.ObservableBoardHolder;
 import Data.DataHandler;
@@ -14,6 +13,5 @@ public abstract class AbstractEnvironment {
         return myGameView;
     }
 
-    public void addKeyListener (KeyHandler keyHandler) {
-    }
+}
 }
