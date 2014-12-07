@@ -1,17 +1,15 @@
 package environment;
 
-import layouts.AbstractLayout;
+import layout.*;
 import boardObjectModels.ObservableBoardHolder;
-import Data.DataHandler;
+import dataHandler.*;
 
 public abstract class AbstractEnvironment {
-    protected ObservableBoardHolder myBoardHolder;
-    protected DataHandler myDataHandler;
-    public AbstractLayout myGameView;
+	protected ObservableBoardHolder myBoardHolder;
+	protected DataHandler myDataHandler;
+	public AbstractLayout myGameView;
 
-    public AbstractLayout getView(){
-        return myGameView;
-    }
-
-}
+	public AbstractLayout getView(){
+		return myGameView;
+	}
 }

@@ -1,22 +1,26 @@
 package environment;
 
-import layouts.AbstractLayout;
-import layouts.LayoutFactory;
+import java.util.Arrays;
 
-import Data.DataHandler;
-import boardObjectModels.ObservableBoardHolder;
+import layout.*;
+import dataHandler.*;
+import boardObjectModels.*;
 
-public class Environment {
+public class Environment extends AbstractEnvironment {
 	protected boolean isAuthoring;
 	protected AbstractLayout playing, authoring;
 	
 	public Environment(String typeOfEnvironment){
 		myBoardHolder = new ObservableBoardHolder();
-		myBoardHolder.updateBoard(new Board(dimensions));
+		myBoardHolder.updateBoard(new Board(Arrays.asList(20,20)));
 		myDataHandler = new DataHandler(myBoardHolder);
 		playing = new PlayingLayout();
 		authoring = new AuthoringLayout();
-		
+		if(typeOfEnvironment.equals("playing")){
+			myGameView = authoring;
+		}else {
+			myGameView = playing;
+		}
 		
 		myGameView.addObserver(myDataHandler);
 		myBoardHolder.addObserver(myGameView);
@@ -29,11 +33,9 @@ public class Environment {
 		} else{
 			myGameView = authoring;
 		}
-		isAuthoring = !isAuthoring		
+		isAuthoring = !isAuthoring;		
 	}
-	public BorderPane getView(){
+	public LayoutPane getPane(){
 		return myGameView.getPane();
 	}
-
-	
 }

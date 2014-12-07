@@ -49,6 +49,10 @@ public class Board {
         return new MyIterator();
 
     }
+    
+    public List<List<Patch>> getPatchList(){
+    	return myPatches;
+    }
 
     public class MyIterator implements Iterator<Patch> {
         private int myXCounter = 0;
