@@ -1,10 +1,10 @@
 package inputs;
 
-public class InputUndoRedo extends AbstractInput{
+public class UndoRedoUpdate extends AbstractInput{
 	
 	private boolean isUndo; 
 	
-	public InputUndoRedo(boolean undo){
+	public UndoRedoUpdate(boolean undo){
 		isUndo = undo; 
 	}
 

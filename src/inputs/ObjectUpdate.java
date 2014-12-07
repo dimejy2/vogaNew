@@ -6,14 +6,14 @@ import java.util.List;
 
  
 
-public class InputObject extends AbstractInput {
+public class ObjectUpdate extends AbstractInput {
 	
 	protected GameObject myGameObject; 
 	protected List<Integer> myCoordinates; 
 	
-	public InputObject(){}
+	public ObjectUpdate(){}
 	
-	public InputObject(GameObject g, List<Integer> coord){
+	public ObjectUpdate(GameObject g, List<Integer> coord){
 	    myGameObject = g;
 	    myCoordinates = coord; 
 	}
@@ -48,7 +48,7 @@ public class InputObject extends AbstractInput {
 	}
 
 	 public AbstractInput makeReverse(){
-	        myOpposite = new InputRemove( getGameObject(), getCoordinates()); 
+	        myOpposite = new RemoveUpdate( getGameObject(), getCoordinates()); 
 	        myOpposite.setReverse(true);
 	        return myOpposite; 
 	 }

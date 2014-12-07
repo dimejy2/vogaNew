@@ -1,8 +1,8 @@
 package boardObjectModels;
 
-import inputs.InputMove;
-import inputs.InputObject;
-import inputs.InputRemove;
+import inputs.MoveUpdate;
+import inputs.ObjectUpdate;
+import inputs.RemoveUpdate;
 
 import java.util.Observable;
 
@@ -10,24 +10,24 @@ public class ObservableBoardHolder extends Observable {
 	private Board myBoard; 
 
 
- public void addObject(InputObject input){
+ public void addObject(ObjectUpdate input){
      myBoard.addObject(input); 
      setChangedAndNotify();
 	}	
 
 	public void changeObjectOnBoard(Object arg){
-		if( arg instanceof InputRemove){
-			removeObject((InputRemove) arg);
+		if( arg instanceof RemoveUpdate){
+			removeObject((RemoveUpdate) arg);
 		}
-		else if( arg instanceof InputMove){
+		else if( arg instanceof MoveUpdate){
 		 
-		    InputMove temp = ( InputMove) arg; 
+		    MoveUpdate temp = ( MoveUpdate) arg; 
 		    removeObject( temp.getMyRemove()); 
 		    addObject(temp.getMyAdd()); 
 		}
 		
-		else if( arg instanceof InputObject){
-			addObject( (InputObject)arg);
+		else if( arg instanceof ObjectUpdate){
+			addObject( (ObjectUpdate)arg);
 		} 
 		
 	}
@@ -49,7 +49,7 @@ public class ObservableBoardHolder extends Observable {
 	    setChanged();
 		notifyObservers();
 	}
-	public void removeObject(InputRemove in){
+	public void removeObject(RemoveUpdate in){
 	    myBoard.deleteGameObjectAtPatch(in.getCoordinates());
 	    setChangedAndNotify();
 	}

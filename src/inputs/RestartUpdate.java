@@ -1,10 +1,10 @@
 package inputs;
 
-public class InputRestart extends AbstractInput{
+public class RestartUpdate extends AbstractInput{
 	
 	private boolean isRestart;
 	
-	public InputRestart(boolean restart){
+	public RestartUpdate(boolean restart){
 		isRestart = restart;
 	}
 	

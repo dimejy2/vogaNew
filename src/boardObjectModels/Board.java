@@ -1,7 +1,7 @@
 package boardObjectModels;
 
 import gameObjectModel.GameObject;
-import inputs.InputObject;
+import inputs.ObjectUpdate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +78,7 @@ public class Board{
     }
 
     
-    public Board addObject (InputObject input) {
+    public Board addObject (ObjectUpdate input) {
         Board tempBoard = new Board(gameObjectList, patchList);
         
         //InputObject tempIn = new InputObject(tempBoard.getPatchGameObject(input.getCoordinates()),input.getCoordinates());

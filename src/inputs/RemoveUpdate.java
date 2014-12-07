@@ -4,15 +4,15 @@ import java.util.List;
 
 import gameObjectModel.GameObject;
 
-public class InputRemove extends InputObject{
+public class RemoveUpdate extends ObjectUpdate{
       
-    public InputRemove(GameObject g, List<Integer> coord){
+    public RemoveUpdate(GameObject g, List<Integer> coord){
         myGameObject = g;
         myCoordinates = coord;
     }
     
      public AbstractInput makeReverse(){
-            myOpposite = new InputObject( getGameObject(), getCoordinates()); 
+            myOpposite = new ObjectUpdate( getGameObject(), getCoordinates()); 
             myOpposite.setReverse(true);
             return myOpposite; 
      }
