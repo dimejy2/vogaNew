@@ -19,7 +19,7 @@ import boardObjectModels.AbstractBoard;
 import boardObjectModels.ObservableBoardHolder;
 
 
-public class DataHandler implements Observer, IDataHandler, boardUpdate{
+public class DataHandler implements Observer, boardUpdate{
 
 	private ObservableBoardHolder myBoardHolder; 
 	private Serialiser mySerialiser;
