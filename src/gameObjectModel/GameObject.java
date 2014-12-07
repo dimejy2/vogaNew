@@ -7,7 +7,7 @@ import attributes.AbstractAttribute;
 
 public class GameObject {
 
-	private List< AbstractAttribute> myAttributeList; 
+	private List<AbstractAttribute> myAttributeList; 
 	private Motion myMotion; 
 
 	
@@ -20,10 +20,6 @@ public class GameObject {
 		myMotion = mover; 
 	}
 	
-/*	public boolean isEmpty(){
-	    return (myAttributeList==null&&myMotion==null);
-	}
-	*/
 	/**
 	 * executes the action associated with the attribute at index attr on the GameObject that
 	 * @param attr
